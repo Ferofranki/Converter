@@ -27,27 +27,7 @@ float KtF(float temp) {
 	float wynik = temp * 9.0 / 5.0 - 459.67;
 	return wynik;
 }
-int checkK(float temp) {
-	if (temp < 0) {
-		temp = -999.0;
-		cout << "Nie ma takiej temperatury" << endl;
-		return temp;
-	}
-}
-int checkC(float temp) {
-	if (temp < -273.15) {
-		temp = -999.0;
-		cout << "Nie ma takiej temperatury" << endl;
-		return temp;
-	}
-}
-int checkF(float temp) {
-	if (temp < -459.67) {
-		temp = -999.0;
-		cout << "Nie ma takiej temperatury" << endl;
-		return temp;
-	}
-}
+
 enum vybar {
 	FC = 1,
 	FK,
