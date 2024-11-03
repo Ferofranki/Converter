@@ -1,5 +1,7 @@
 ﻿#include <stdio.h> 
 #include <iostream>
+#include <stdlib.h>
+
 using namespace std;
 int cels, fahr, kelv;
 
@@ -50,49 +52,58 @@ void menu() {
 
 int main()
 {
-	menu();
-	int vybar;
-	cin >> vybar;
-	float temp;
 	
-	switch (vybar) {
-	case 1:
-		cout << "Temp w Fahr: ";
-		cin >> temp;
+	while (true) {
+		system("cls");
+		menu();
+		int vybar;
+		cin >> vybar;
+		float temp;
+
+		switch (vybar) {
+		case 1:
+			cout << "Temp w Fahr: ";
+			cin >> temp;
+
+
+			cout << "W Celsiusach: " << FtC(temp) << endl;
+			break;
+		case 2:
+			cout << "Temp w Fahr: ";
+			cin >> temp;
+			cout << "W Kelwinach: " << FtK(temp) << endl;
+			break;
+		case 3:
+			cout << "Temp w Celsiusach: ";
+			cin >> temp;
+
+			cout << "W Fahr: " << CtF(temp) << endl;
+			break;
+		case 4:
+			cout << "Temp w Celsiusach: ";
+			cin >> temp;
+			cout << "W Kelwinach: " << CtK(temp) << endl;
+			break;
+		case 5:
+			cout << "Temp w Kelwinach: ";
+			cin >> temp;
+			cout << "W Celsiusach: " << KtC(temp) << endl;
+			break;
+		case 6:
+			cout << "Temp w Kelwinach: ";
+			cin >> temp;
+			cout << "W Fahr: " << KtF(temp) << endl;
+			break;
+		case 7:
+			cout << "Do zobaczenia" << endl;
+			return 0;
+		default:
+			cout << "Nie mozesz tego zrobic" << endl;
+
+
+		}
+		cout << "Enter zeby kontynuowac" << endl;
 		
-		
-		cout << "W Celsiusach: " << FtC(temp) << endl;
-		break;
-	case 2:
-		cout << "Temp w Fahr: ";
-		cin >> temp;
-		cout << "W Kelwinach: " << FtK(temp) << endl;
-		break;
-	case 3:
-		cout << "Temp w Celsiusach: ";
-		cin >> temp;
-
-		cout << "W Fahr: " << CtF(temp) << endl;
-		break;
-	case 4:
-		cout << "Temp w Celsiusach: ";
-		cin >> temp;
-		cout << "W Kelwinach: " << CtK(temp) << endl;
-		break;
-	case 5:
-		cout << "Temp w Kelwinach: ";
-		cin >> temp;
-		cout << "W Celsiusach: " << KtC(temp) << endl;
-		break;
-	case 6:
-		cout << "Temp w Kelwinach: ";
-		cin >> temp;
-		cout << "W Fahr: " << KtF(temp) << endl;
-		break;
-	case 7:
-		cout << "Do zobaczenia" << endl;
-
-
+		cin.get();
 	}
-	
 }
