@@ -30,6 +30,27 @@ float KtF(float temp) {
 	return wynik;
 }
 
+int check(float temp, char stopnie) {
+	if (stopnie == 'F') {
+		if (temp < -459.67) {
+			cout << "Nie ma takiej temperatury" << endl;
+			return -999.0;
+		}
+	}
+	else if (stopnie == 'C') {
+		if (temp < -273.15) {
+			cout << "Nie ma takiej temperatury" << endl;
+			return -999.0;
+		}
+	}
+	else if (stopnie == 'K') {
+		if (temp < 0) {
+			cout << "Nie ma takiej temperatury" << endl;
+			return -999.0;
+		}
+	}
+	return temp;
+}
 enum vybar {
 	FC = 1,
 	FK,
@@ -64,34 +85,55 @@ int main()
 		case 1:
 			cout << "Temp w Fahr: ";
 			cin >> temp;
-
-
+			temp = check(temp, 'F');
+			if (temp == -999.0) {
+				break;
+			}
 			cout << "W Celsiusach: " << FtC(temp) << endl;
 			break;
 		case 2:
 			cout << "Temp w Fahr: ";
 			cin >> temp;
+			temp = check(temp, 'F');
+			if (temp == -999.0) {
+				break;
+			}
 			cout << "W Kelwinach: " << FtK(temp) << endl;
 			break;
 		case 3:
 			cout << "Temp w Celsiusach: ";
 			cin >> temp;
-
+			temp = check(temp, 'C');
+			if (temp == -999.0) {
+				break;
+			}
 			cout << "W Fahr: " << CtF(temp) << endl;
 			break;
 		case 4:
 			cout << "Temp w Celsiusach: ";
 			cin >> temp;
+			temp = check(temp, 'C');
+			if (temp == -999.0) {
+				break;
+			}
 			cout << "W Kelwinach: " << CtK(temp) << endl;
 			break;
 		case 5:
 			cout << "Temp w Kelwinach: ";
 			cin >> temp;
+			temp = check(temp, 'K');
+			if (temp == -999.0) {
+				break;
+			}
 			cout << "W Celsiusach: " << KtC(temp) << endl;
 			break;
 		case 6:
 			cout << "Temp w Kelwinach: ";
 			cin >> temp;
+			temp = check(temp, 'K');
+			if (temp == -999.0) {
+				break;
+			}
 			cout << "W Fahr: " << KtF(temp) << endl;
 			break;
 		case 7:
@@ -103,7 +145,7 @@ int main()
 
 		}
 		cout << "Enter zeby kontynuowac" << endl;
-		
+		cin.ignore();
 		cin.get();
 	}
 }
