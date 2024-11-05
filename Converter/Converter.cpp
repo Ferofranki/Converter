@@ -145,7 +145,7 @@ int main()
 
 		}
 		cout << "Enter zeby kontynuowac" << endl;
-		cin.ignore();
-		cin.get();
+		cin.ignore(); //каб скіпаць першы enter
+		cin.get(); //каб увесці толькі enter і нічога іншага
 	}
 }
