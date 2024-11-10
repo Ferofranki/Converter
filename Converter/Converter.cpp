@@ -5,6 +5,16 @@
 using namespace std;
 int cels, fahr, kelv;
 
+void zapisToData(int* dataCounter, double* data, double temp1, double temp2, char znak1, char znak2, char* dataZ) {
+	data[*dataCounter] = temp1;
+	dataZ[*dataCounter] = znak1;
+	(*dataCounter)++;
+	data[*dataCounter] = temp2;
+	dataZ[*dataCounter] = znak2;
+	(*dataCounter)++;
+	
+}
+
 float FtC(float temp) {
 	float wynik = (temp - 32) * 5.0 / 9.0;
 	return wynik;
@@ -58,6 +68,7 @@ enum vybar {
 	CK,
 	KC,
 	KF,
+	history,
 	end
 };
 void menu() {
@@ -67,19 +78,29 @@ void menu() {
 	cout << "4. Celsius to Kelvin" << endl;
 	cout << "5. Kelvin to Celsius" << endl;
 	cout << "6. Kelvin to Fahr" << endl;
-	cout << "7. Bye-bye" << endl;
-	
+	cout << "7. Pokaz historie" << endl;
+	cout << "8. Bye-bye" << endl;
 }
+
+
 
 int main()
 {
+	double data[100] = { 0 };
+	int dataCounter = 0;
 	
+	char dataZ[100];
+
+
+
+
 	while (true) {
 		system("cls");
 		menu();
 		int vybar;
 		cin >> vybar;
 		float temp;
+		
 
 		switch (vybar) {
 		case 1:
@@ -90,6 +111,7 @@ int main()
 				break;
 			}
 			cout << "W Celsiusach: " << FtC(temp) << endl;
+			zapisToData(&dataCounter, data, temp, FtC(temp), 'F', 'C', dataZ);
 			break;
 		case 2:
 			cout << "Temp w Fahr: ";
@@ -99,6 +121,7 @@ int main()
 				break;
 			}
 			cout << "W Kelwinach: " << FtK(temp) << endl;
+			zapisToData(&dataCounter, data, temp, FtK(temp), 'F', 'K', dataZ);
 			break;
 		case 3:
 			cout << "Temp w Celsiusach: ";
@@ -108,6 +131,7 @@ int main()
 				break;
 			}
 			cout << "W Fahr: " << CtF(temp) << endl;
+			zapisToData(&dataCounter, data, temp, CtF(temp), 'C', 'F', dataZ);
 			break;
 		case 4:
 			cout << "Temp w Celsiusach: ";
@@ -117,6 +141,7 @@ int main()
 				break;
 			}
 			cout << "W Kelwinach: " << CtK(temp) << endl;
+			zapisToData(&dataCounter, data, temp, CtK(temp), 'C', 'K', dataZ);
 			break;
 		case 5:
 			cout << "Temp w Kelwinach: ";
@@ -126,6 +151,7 @@ int main()
 				break;
 			}
 			cout << "W Celsiusach: " << KtC(temp) << endl;
+			zapisToData(&dataCounter, data, temp, KtC(temp), 'K', 'C', dataZ);
 			break;
 		case 6:
 			cout << "Temp w Kelwinach: ";
@@ -135,17 +161,26 @@ int main()
 				break;
 			}
 			cout << "W Fahr: " << KtF(temp) << endl;
+			zapisToData(&dataCounter, data, temp, KtF(temp), 'K', 'F', dataZ);
 			break;
 		case 7:
+			cout << "\tHistoria" << endl;
+			for (int i = 1, g = 0; i <= dataCounter / 2; i++, g += 2) {
+				cout << "<" << i << "> " << data[g] << dataZ[g] << " = " << data[g + 1] << dataZ[g + 1] << endl;
+			}
+			break;
+		case 8:
 			cout << "Do zobaczenia" << endl;
 			return 0;
+			
 		default:
 			cout << "Nie mozesz tego zrobic" << endl;
 
 
 		}
+		
 		cout << "Enter zeby kontynuowac" << endl;
-		cin.ignore();
-		cin.get();
+		cin.ignore(); //каб скіпаць першы enter
+		cin.get(); //каб увесці толькі enter і нічога іншага
 	}
 }
