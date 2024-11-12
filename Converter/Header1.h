@@ -14,7 +14,7 @@ void zapisToData(int* dataCounter, double* data, double temp1, double temp2, cha
 
 }
 
-float FtC(float temp) {
+float FtC(float temp) { //што за хуйня
 	float wynik = (temp - 32) * 5.0 / 9.0;
 	return wynik;
 }
@@ -59,7 +59,7 @@ int check(float temp, char stopnie) {
 	}
 	return temp;
 }
-enum vybar {
+enum vybar { //lvl 1
 	FC = 1,
 	FK,
 	CF,
@@ -67,19 +67,41 @@ enum vybar {
 	KC,
 	KF,
 	history,
-	end
+	delHistory,
+	koniec
+};
+enum histType {
+	C = 1,
+	F,
+	K,
+	WSIO
 };
 
 void menu() {
-	cout << "1. Fahr to Celsius" << endl;
-	cout << "2. Fahr to Kelvin" << endl;
-	cout << "3. Celsius to Fahr" << endl;
-	cout << "4. Celsius to Kelvin" << endl;
-	cout << "5. Kelvin to Celsius" << endl;
-	cout << "6. Kelvin to Fahr" << endl;
-	cout << "7. Pokaz historie" << endl;
-	cout << "8. Bye-bye" << endl;
+	cout << "1. Fahr to Celsius" << endl
+		 << "2. Fahr to Kelvin" << endl
+		 << "3. Celsius to Fahr" << endl
+		 << "4. Celsius to Kelvin" << endl
+		 << "5. Kelvin to Celsius" << endl
+		 << "6. Kelvin to Fahr" << endl
+		 << "7. Pokaz historie" << endl
+		 << "8. Usun historie" << endl
+		 << "9. Bye-bye" << endl;
 }
 
+void delData(double* data, char* dataZ, int delData, int k) { //lvl 99 mafia boss
+	for (int i = delData * 2 - 2; i < k - 1; i++) {
+		if (dataZ[i + 2] != 0) {
+			data[i] = data[i + 2];
+			dataZ[i] = dataZ[i + 2];
+		}
+	}
+	for (int i = delData * 2 - 1; i < k - 1; i++) {
+		if (dataZ[i + 1] != 0) {
+			data[i] = data[i + 2];
+			dataZ[i] = dataZ[i + 2];
+		}
+	}
+}
 
 
