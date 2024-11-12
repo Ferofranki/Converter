@@ -112,7 +112,7 @@ int main()
 				cry = true;
 				for (int i = 1, g = 0; i <= dataCounter / 2; i++, g += 2) {
 					
-					if (dataZ[g] == 'C') {
+					if (dataZ[g] == 'C') { //Сделать фцию dataZ[g] = peremenaya || peremenaya = 'A'
 						cout << "<" << i << "> " << data[g] << dataZ[g] << " = " << data[g + 1] << dataZ[g + 1] << endl;
 						cry = false;
 					}
@@ -151,7 +151,7 @@ int main()
 				}
 				break;
 
-			case WSIO:
+			case WSIO: 
 			for (int i = 1, g = 0; i <= dataCounter / 2; i++, g += 2) {
 				cout << "<" << i << "> " << data[g] << dataZ[g] << " = " << data[g + 1] << dataZ[g + 1] << endl;
 			}
