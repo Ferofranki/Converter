@@ -89,6 +89,22 @@ void menu() {
 		 << "9. Bye-bye" << endl;
 }
 
+void vybHIST(double* data, char* dataZ, int dataCounter, char tempType) {
+	bool cry = true;
+	for (int i = 1, g = 0; g < dataCounter; g += 2) {
+
+		if (dataZ[g] == tempType || tempType == 'A') { //Сделать фцию dataZ[g] = peremenaya || peremenaya = 'A'
+			cout << "<" << i << "> " << data[g] << dataZ[g] << " = " << data[g + 1] << dataZ[g + 1] << endl;
+			cry = false;
+			i++;
+		}
+
+	}
+	if (cry) {
+		cout << "Bruh,nie ma danych" << endl;
+	}
+}
+
 void delData(double* data, char* dataZ, int delData, int k) { //lvl 99 mafia boss
 	for (int i = delData * 2 - 2; i < k - 1; i++) {
 		if (dataZ[i + 2] != 0) {

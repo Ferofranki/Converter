@@ -7,9 +7,6 @@ using namespace std;
 int cels, fahr, kelv;
 
 
-
-
-
 int main()
 {
 	const int k = 100;
@@ -109,52 +106,18 @@ int main()
 			switch (vybHIS) {
 
 			case C:
-				cry = true;
-				for (int i = 1, g = 0; i <= dataCounter / 2; i++, g += 2) {
-					
-					if (dataZ[g] == 'C') { //Сделать фцию dataZ[g] = peremenaya || peremenaya = 'A'
-						cout << "<" << i << "> " << data[g] << dataZ[g] << " = " << data[g + 1] << dataZ[g + 1] << endl;
-						cry = false;
-					}
-					
-				}
-				if (cry) {
-					cout << "Bruh,nie ma danych" << endl;
-				}
+				vybHIST(data, dataZ, dataCounter, 'C');
 				break;
 			case F:
-				cry = true;
-				for (int i = 1, g = 0; i <= dataCounter / 2; i++, g += 2) {
-
-					if (dataZ[g] == 'F') {
-						cout << "<" << i << "> " << data[g] << dataZ[g] << " = " << data[g + 1] << dataZ[g + 1] << endl;
-						cry = false;
-					}
-
-				}
-				if (cry) {
-					cout << "Bruh,nie ma danych" << endl;
-				}
+				vybHIST(data, dataZ, dataCounter, 'F');
 				break;
 			case K:
-				cry = true;
-				for (int i = 1, g = 0; i <= dataCounter / 2; i++, g += 2) {
-
-					if (dataZ[g] == 'K') {
-						cout << "<" << i << "> " << data[g] << dataZ[g] << " = " << data[g + 1] << dataZ[g + 1] << endl;
-						cry = false;
-					}
-
-				}
-				if (cry) {
-					cout << "Bruh,nie ma danych" << endl;
-				}
+				vybHIST(data, dataZ, dataCounter, 'K');
 				break;
 
 			case WSIO: 
-			for (int i = 1, g = 0; i <= dataCounter / 2; i++, g += 2) {
-				cout << "<" << i << "> " << data[g] << dataZ[g] << " = " << data[g + 1] << dataZ[g + 1] << endl;
-			}
+				vybHIST(data, dataZ, dataCounter, 'A'); //A for All
+			
 			break;
 		}
 			break;
