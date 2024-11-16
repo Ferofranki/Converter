@@ -14,7 +14,7 @@ void zapisToData(int* dataCounter, double* data, double temp1, double temp2, cha
 
 }
 
-float FtC(float temp) { //што за хуйня
+float FtC(float temp) { //хуйня,якую трэба зрабіць як-небудзь менш(але няпэўна)
 	float wynik = (temp - 32) * 5.0 / 9.0;
 	return wynik;
 }
@@ -59,7 +59,7 @@ int check(float temp, char stopnie) {
 	}
 	return temp;
 }
-enum vybar { //lvl 1
+enum vybar { //lvl 1 Rookie
 	FC = 1,
 	FK,
 	CF,
@@ -70,7 +70,7 @@ enum vybar { //lvl 1
 	delHistory,
 	koniec
 };
-enum histType {
+enum histType { //Сумненна, але окэээй
 	C = 1,
 	F,
 	K,
@@ -93,7 +93,7 @@ void vybHIST(double* data, char* dataZ, int dataCounter, char tempType) {
 	bool cry = true;
 	for (int i = 1, g = 0; g < dataCounter; g += 2) {
 
-		if (dataZ[g] == tempType || tempType == 'A') { //Сделать фцию dataZ[g] = peremenaya || peremenaya = 'A'
+		if (dataZ[g] == tempType || tempType == 'A') { //Зрабіць фцыю dataZ[g] = peremenaya || peremenaya = 'A'
 			cout << "<" << i << "> " << data[g] << dataZ[g] << " = " << data[g + 1] << dataZ[g + 1] << endl;
 			cry = false;
 			i++;
