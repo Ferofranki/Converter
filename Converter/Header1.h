@@ -180,3 +180,14 @@ void randHistory(int* dataCounter, double* data, char* dataZ) {
 		}
 	}
 }
+
+bool nieDebil(string str) {
+	for (int i = 0; i < str.length(); i++) {
+
+		if (str[i] < 48 || str[i] > 57) {
+
+			return 0;
+		}
+	}
+	return 1;
+}

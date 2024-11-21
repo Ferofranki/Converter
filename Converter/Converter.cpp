@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include "header1.h"
+#include <string>
 
 using namespace std;
 int cels, fahr, kelv;
@@ -9,6 +10,7 @@ int cels, fahr, kelv;
 
 int main()
 {
+
 	srand(time(0));
 	const int k = 100;
 	double data[k] = { 0 };
@@ -30,13 +32,31 @@ int main()
 
 
 		int vybar;
-		cin >> vybar;
+		string vybarline;
+		cin >> vybarline;
+		if (nieDebil(vybarline)) {
+			vybar = stoi(vybarline);
+		}
+		else {
+			vybar = -1;
+
+		}
+		
 		float temp;
+		string line;
 
 		switch (vybar) {
 		case FC:
 			cout << "Temp w Fahr: ";
-			cin >> temp;
+			cin >> line;
+			if (nieDebil(line)) {
+				temp = stof(line);
+			}
+			else {
+				cout << "Niepoprawne dane" << endl; // Ты шо долбаёб?
+				break;
+		}
+			
 			temp = check(temp, 'F');
 			if (temp == -999.0) {
 				break;
@@ -46,7 +66,14 @@ int main()
 			break;
 		case FK:
 			cout << "Temp w Fahr: ";
-			cin >> temp;
+			cin >> line;
+			if (nieDebil(line)) {
+				temp = stof(line);
+			}
+			else {
+				cout << "Niepoprawne dane" << endl; // Ты шо долбаёб?
+				break;
+			}
 			temp = check(temp, 'F');
 			if (temp == -999.0) {
 				break;
@@ -56,7 +83,14 @@ int main()
 			break;
 		case CF:
 			cout << "Temp w Celsiusach: ";
-			cin >> temp;
+			cin >> line;
+			if (nieDebil(line)) {
+				temp = stof(line);
+			}
+			else {
+				cout << "Niepoprawne dane" << endl; // Ты шо долбаёб?
+				break;
+			}
 			temp = check(temp, 'C');
 			if (temp == -999.0) {
 				break;
@@ -66,7 +100,14 @@ int main()
 			break;
 		case CK:
 			cout << "Temp w Celsiusach: ";
-			cin >> temp;
+			cin >> line;
+			if (nieDebil(line)) {
+				temp = stof(line);
+			}
+			else {
+				cout << "Niepoprawne dane" << endl; // Ты шо долбаёб?
+				break;
+			}
 			temp = check(temp, 'C');
 			if (temp == -999.0) {
 				break;
@@ -76,7 +117,14 @@ int main()
 			break;
 		case KC:
 			cout << "Temp w Kelwinach: ";
-			cin >> temp;
+			cin >> line;
+			if (nieDebil(line)) {
+				temp = stof(line);
+			}
+			else {
+				cout << "Niepoprawne dane" << endl; // Ты шо долбаёб?
+				break;
+			}
 			temp = check(temp, 'K');
 			if (temp == -999.0) {
 				break;
@@ -86,7 +134,14 @@ int main()
 			break;
 		case KF:
 			cout << "Temp w Kelwinach: ";
-			cin >> temp;
+			cin >> line;
+			if (nieDebil(line)) {
+				temp = stof(line);
+			}
+			else {
+				cout << "Niepoprawne dane" << endl; // Ты шо долбаёб?
+				break;
+			}
 			temp = check(temp, 'K');
 			if (temp == -999.0) {
 				break;
@@ -168,11 +223,19 @@ int main()
 				int modVybar;
 				cin >> modVybar;
 				float modTemp;
+				string modline;
 
 				switch (modVybar) {
 				case FC:
 					cout << "Temp w Fahr: ";
-					cin >> modTemp;
+					cin >> modline;
+					if (nieDebil(modline)) {
+						modTemp = stof(modline);
+					}
+					else {
+						cout << "Niepoprawne dane" << endl; // Ты шо долбаёб?
+						break;
+					}
 					modTemp = check(modTemp, 'F');
 					if (modTemp == -999.0) {
 						break;
@@ -182,7 +245,14 @@ int main()
 					break;
 				case FK:
 					cout << "Temp w Fahr: ";
-					cin >> modTemp;
+					cin >> modline;
+					if (nieDebil(modline)) {
+						modTemp = stof(modline);
+					}
+					else {
+						cout << "Niepoprawne dane" << endl; // Ты шо долбаёб?
+						break;
+					}
 					modTemp = check(modTemp, 'F');
 					if (modTemp == -999.0) {
 						break;
@@ -192,7 +262,14 @@ int main()
 					break;
 				case CF:
 					cout << "Temp w Celsiusach: ";
-					cin >> modTemp;
+					cin >> modline;
+					if (nieDebil(modline)) {
+						modTemp = stof(modline);
+					}
+					else {
+						cout << "Niepoprawne dane" << endl; // Ты шо долбаёб?
+						break;
+					}
 					modTemp = check(modTemp, 'C');
 					if (modTemp == -999.0) {
 						break;
@@ -202,7 +279,14 @@ int main()
 					break;
 				case CK:
 					cout << "Temp w Celsiusach: ";
-					cin >> modTemp;
+					cin >> modline;
+					if (nieDebil(modline)) {
+						modTemp = stof(modline);
+					}
+					else {
+						cout << "Niepoprawne dane" << endl; // Ты шо долбаёб?
+						break;
+					}
 					modTemp = check(modTemp, 'C');
 					if (modTemp == -999.0) {
 						break;
@@ -212,7 +296,14 @@ int main()
 					break;
 				case KC:
 					cout << "Temp w Kelwinach: ";
-					cin >> modTemp;
+					cin >> modline;
+					if (nieDebil(modline)) {
+						modTemp = stof(modline);
+					}
+					else {
+						cout << "Niepoprawne dane" << endl; // Ты шо долбаёб?
+						break;
+					}
 					modTemp = check(modTemp, 'K');
 					if (modTemp == -999.0) {
 						break;
@@ -222,7 +313,14 @@ int main()
 					break;
 				case KF:
 					cout << "Temp w Kelwinach: ";
-					cin >> modTemp;
+					cin >> modline;
+					if (nieDebil(modline)) {
+						modTemp = stof(modline);
+					}
+					else {
+						cout << "Niepoprawne dane" << endl; // Ты шо долбаёб?
+						break;
+					}
 					modTemp = check(modTemp, 'K');
 					if (modTemp == -999.0) {
 						break;
