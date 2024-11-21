@@ -77,6 +77,8 @@ enum vybar { //lvl 1 Rookie
 	history,
 	delHistory,
 	modHistory,
+	randData,
+	clearAll,
 	koniec
 };
 enum histType { //Сумненна, але окэээй
@@ -95,8 +97,10 @@ void menu() {
 		 << "6. Kelvin to Fahr" << endl
 		 << "7. Pokaz historie" << endl
 		 << "8. Usun historie" << endl 
-		 << "9. Modyfikuj historie" << endl
-		 << "10. Bye-bye" << endl;
+		 << "9. Modyfikuj historie" << endl 
+		 << "10. Random history" << endl 
+		 << "11. Wyczysc wszystko" << endl
+		 << "12. Bye-bye" << endl;
 }
 
 void vybHIST(double* data, char* dataZ, int dataCounter, char tempType) {
@@ -131,3 +135,48 @@ void delData(double* data, char* dataZ, int delData, int k) { //lvl 99 mafia bos
 }
 
 
+void randHistory(int* dataCounter, double* data, char* dataZ) {
+	cout << "Pamieci zostalo sie: " << 50 - *dataCounter / 2 << " miejc" << endl;
+	
+	int ileWart;
+	cout << "Ile wartosci przeliczyc?" << endl;
+	cin >> ileWart;
+	if (ileWart > 50 - *dataCounter / 2) {
+		cout << "Za malo pamieci" << endl;
+		return;
+	}
+	for (int i = 0; i < ileWart; i++) {
+		int tempType = rand() % 6 + 1;
+		float randtemp = rand() % 1000 + 1;
+		float tempC = -273;
+		float tempF = -459;
+		float tempK = 0;
+		int resultTemp;
+		switch (tempType) {
+		case FC:
+			resultTemp = tempF + randtemp;
+			zapisToData(dataCounter, data, resultTemp, FtC(resultTemp), 'F', 'C', dataZ);
+			break;
+		case FK:
+			resultTemp = tempF + randtemp;
+			zapisToData(dataCounter, data, resultTemp, FtK(resultTemp), 'F', 'K', dataZ);
+			break;
+		case CF:
+			resultTemp = tempC + randtemp;
+			zapisToData(dataCounter, data, resultTemp, CtF(resultTemp), 'C', 'F', dataZ);
+			break;
+		case CK:
+			resultTemp = tempC + randtemp;
+			zapisToData(dataCounter, data, resultTemp, CtK(resultTemp), 'C', 'K', dataZ);
+			break;
+		case KC:
+			resultTemp = tempK + randtemp;
+			zapisToData(dataCounter, data, resultTemp, KtC(resultTemp), 'K', 'C', dataZ);
+			break;
+		case KF:
+			resultTemp = tempK + randtemp;
+			zapisToData(dataCounter, data, resultTemp, KtF(resultTemp), 'K', 'F', dataZ);
+			break;
+		}
+	}
+}

@@ -9,6 +9,7 @@ int cels, fahr, kelv;
 
 int main()
 {
+	srand(time(0));
 	const int k = 100;
 	double data[k] = { 0 };
 	int dataCounter = 0;
@@ -237,6 +238,18 @@ int main()
 				}
 				break;
 			}
+
+		case randData:
+			randHistory(&dataCounter, data, dataZ);
+			break;
+		case clearAll:
+			dataCounter = 0;
+			for (int i = 0; i < k; i++) {
+				data[i] = 0;
+				dataZ[i] = 0;
+			}
+			cout << "Usunieto" << endl;
+			break;
 
 		case koniec:
 			cout << "Do zobaczenia" << endl;
