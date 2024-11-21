@@ -31,7 +31,6 @@ int main()
 		int vybar;
 		cin >> vybar;
 		float temp;
-		
 
 		switch (vybar) {
 		case FC:
@@ -94,6 +93,7 @@ int main()
 			cout << "W Fahr: " << KtF(temp) << endl;
 			zapisToData(&dataCounter, data, temp, KtF(temp), 'K', 'F', dataZ);
 			break;
+
 		case history:
 			cout << "\tHistoria" << endl;
 			cout << "-------------------------" << endl;
@@ -131,7 +131,7 @@ int main()
 			int del;
 			cout << "Co chcesz usunac?" << endl;
 			cin >> del;
-			if (del >= dataCounter / 2 || del < 0) {
+			if (del > dataCounter / 2 || del < 0) {
 				cout << "Nie ma takiego elementu" << endl;
 				break;
 			}
@@ -142,6 +142,101 @@ int main()
 			}
 			break;
 
+		case modHistory:
+			cout << "\tHistoria" << endl;
+			cout << "-------------------------" << endl;
+			for (int i = 1, g = 0; i <= dataCounter / 2; i++, g += 2) {
+				cout << "<" << i << "> " << data[g] << dataZ[g] << " = " << data[g + 1] << dataZ[g + 1] << endl;
+			}
+			int mod;
+			cout << "Co chcesz zmodyfikowac?" << endl;
+			cin >> mod;
+			if (mod > dataCounter / 2 || mod < 0) {
+				cout << "Nie ma takiego elementu" << endl;
+				break;
+			}
+			else {
+				cout << "Jak chcesz zmodyfikowac?" << endl
+					<< "1. Fahr to Celsius" << endl
+					<< "2. Fahr to Kelvin" << endl
+					<< "3. Celsius to Fahr" << endl
+					<< "4. Celsius to Kelvin" << endl
+					<< "5. Kelvin to Celsius" << endl
+					<< "6. Kelvin to Fahr" << endl;
+
+				int modVybar;
+				cin >> modVybar;
+				float modTemp;
+
+				switch (modVybar) {
+				case FC:
+					cout << "Temp w Fahr: ";
+					cin >> modTemp;
+					modTemp = check(modTemp, 'F');
+					if (modTemp == -999.0) {
+						break;
+					}
+
+					modzapisToData(mod, data, modTemp, FtC(modTemp), 'F', 'C', dataZ);
+					break;
+				case FK:
+					cout << "Temp w Fahr: ";
+					cin >> modTemp;
+					modTemp = check(modTemp, 'F');
+					if (modTemp == -999.0) {
+						break;
+					}
+
+					modzapisToData(mod, data, modTemp, FtK(modTemp), 'F', 'K', dataZ);
+					break;
+				case CF:
+					cout << "Temp w Celsiusach: ";
+					cin >> modTemp;
+					modTemp = check(modTemp, 'C');
+					if (modTemp == -999.0) {
+						break;
+					}
+
+					modzapisToData(mod, data, modTemp, CtF(modTemp), 'C', 'F', dataZ);
+					break;
+				case CK:
+					cout << "Temp w Celsiusach: ";
+					cin >> modTemp;
+					modTemp = check(modTemp, 'C');
+					if (modTemp == -999.0) {
+						break;
+					}
+
+					modzapisToData(mod, data, modTemp, CtK(modTemp), 'C', 'K', dataZ);
+					break;
+				case KC:
+					cout << "Temp w Kelwinach: ";
+					cin >> modTemp;
+					modTemp = check(modTemp, 'K');
+					if (modTemp == -999.0) {
+						break;
+					}
+
+					modzapisToData(mod, data, modTemp, KtC(modTemp), 'K', 'C', dataZ);
+					break;
+				case KF:
+					cout << "Temp w Kelwinach: ";
+					cin >> modTemp;
+					modTemp = check(modTemp, 'K');
+					if (modTemp == -999.0) {
+						break;
+					}
+
+					modzapisToData(mod, data, modTemp, KtF(modTemp), 'K', 'F', dataZ);
+					break;
+
+
+					cout << "Nowa wartosc: ";
+
+					cout << "Zmodyfikowano" << endl;
+				}
+				break;
+			}
 
 		case koniec:
 			cout << "Do zobaczenia" << endl;

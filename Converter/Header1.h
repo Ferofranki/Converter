@@ -4,7 +4,7 @@ using namespace std;
 
 
 
-void zapisToData(int* dataCounter, double* data, double temp1, double temp2, char znak1, char znak2, char* dataZ) {
+void zapisToData(int* dataCounter , double* data, double temp1, double temp2, char znak1, char znak2, char* dataZ) {
 	data[*dataCounter] = temp1;
 	dataZ[*dataCounter] = znak1;
 	(*dataCounter)++;
@@ -12,6 +12,13 @@ void zapisToData(int* dataCounter, double* data, double temp1, double temp2, cha
 	dataZ[*dataCounter] = znak2;
 	(*dataCounter)++;
 
+}
+
+void modzapisToData(int modData, double* data, double temp1, double temp2, char znak1, char znak2, char* dataZ) {
+	data[modData * 2 - 2] = temp1;
+	dataZ[modData * 2 - 2] = znak1;
+	data[modData * 2 - 1] = temp2;
+	dataZ[modData * 2 - 1] = znak2;
 }
 
 float FtC(float temp) { //хуйня,якую трэба зрабіць як-небудзь менш(але няпэўна)
@@ -38,6 +45,7 @@ float KtF(float temp) {
 	float wynik = temp * 9.0 / 5.0 - 459.67;
 	return wynik;
 }
+
 int check(float temp, char stopnie) {
 	if (stopnie == 'F') {
 		if (temp < -459.67) {
@@ -68,6 +76,7 @@ enum vybar { //lvl 1 Rookie
 	KF,
 	history,
 	delHistory,
+	modHistory,
 	koniec
 };
 enum histType { //Сумненна, але окэээй
@@ -85,8 +94,9 @@ void menu() {
 		 << "5. Kelvin to Celsius" << endl
 		 << "6. Kelvin to Fahr" << endl
 		 << "7. Pokaz historie" << endl
-		 << "8. Usun historie" << endl
-		 << "9. Bye-bye" << endl;
+		 << "8. Usun historie" << endl 
+		 << "9. Modyfikuj historie" << endl
+		 << "10. Bye-bye" << endl;
 }
 
 void vybHIST(double* data, char* dataZ, int dataCounter, char tempType) {
