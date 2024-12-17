@@ -14,6 +14,7 @@ void zapisToData(int* dataCounter , double* data, double temp1, double temp2, ch
 
 }
 
+
 void modzapisToData(int modData, double* data, double temp1, double temp2, char znak1, char znak2, char* dataZ) {
 	data[modData * 2 - 2] = temp1;
 	dataZ[modData * 2 - 2] = znak1;

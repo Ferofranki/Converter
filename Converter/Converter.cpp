@@ -62,7 +62,9 @@ int main()
 				break;
 			}
 			cout << "W Celsiusach: " << FtC(temp) << endl;
-			zapisToData(&dataCounter, data, temp, FtC(temp), 'F', 'C', dataZ);
+			for (int i = 0; i < 3; i++) {
+				zapisToData(&dataCounter, data, temp, FtC(temp), 'F', 'C', dataZ);
+			}
 			break;
 		case FK:
 			cout << "Temp w Fahr: ";
@@ -79,7 +81,9 @@ int main()
 				break;
 			}
 			cout << "W Kelwinach: " << FtK(temp) << endl;
-			zapisToData(&dataCounter, data, temp, FtK(temp), 'F', 'K', dataZ);
+			for (int i = 0; i < 3; i++) {
+				zapisToData(&dataCounter, data, temp, FtK(temp), 'F', 'K', dataZ);
+			}
 			break;
 		case CF:
 			cout << "Temp w Celsiusach: ";
@@ -257,8 +261,9 @@ int main()
 					if (modTemp == -999.0) {
 						break;
 					}
-
-					modzapisToData(mod, data, modTemp, FtK(modTemp), 'F', 'K', dataZ);
+					
+						modzapisToData(mod, data, modTemp, FtK(modTemp), 'F', 'K', dataZ);
+					
 					break;
 				case CF:
 					cout << "Temp w Celsiusach: ";
