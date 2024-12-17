@@ -1,4 +1,4 @@
-﻿#include <stdio.h> 
+﻿
 #include <iostream>
 #include <stdlib.h>
 #include "header1.h"
@@ -34,7 +34,7 @@ int main()
 		int vybar;
 		string vybarline;
 		cin >> vybarline;
-		if (nieDebil(vybarline)) {
+		if (nieIdiota(vybarline)) {
 			vybar = stoi(vybarline);
 		}
 		else {
@@ -49,7 +49,7 @@ int main()
 		case FC:
 			cout << "Temp w Fahr: ";
 			cin >> line;
-			if (nieDebil(line)) {
+			if (nieIdiota(line)) {
 				temp = stof(line);
 			}
 			else {
@@ -67,7 +67,7 @@ int main()
 		case FK:
 			cout << "Temp w Fahr: ";
 			cin >> line;
-			if (nieDebil(line)) {
+			if (nieIdiota(line)) {
 				temp = stof(line);
 			}
 			else {
@@ -84,7 +84,7 @@ int main()
 		case CF:
 			cout << "Temp w Celsiusach: ";
 			cin >> line;
-			if (nieDebil(line)) {
+			if (nieIdiota(line)) {
 				temp = stof(line);
 			}
 			else {
@@ -101,7 +101,7 @@ int main()
 		case CK:
 			cout << "Temp w Celsiusach: ";
 			cin >> line;
-			if (nieDebil(line)) {
+			if (nieIdiota(line)) {
 				temp = stof(line);
 			}
 			else {
@@ -118,7 +118,7 @@ int main()
 		case KC:
 			cout << "Temp w Kelwinach: ";
 			cin >> line;
-			if (nieDebil(line)) {
+			if (nieIdiota(line)) {
 				temp = stof(line);
 			}
 			else {
@@ -135,7 +135,7 @@ int main()
 		case KF:
 			cout << "Temp w Kelwinach: ";
 			cin >> line;
-			if (nieDebil(line)) {
+			if (nieIdiota(line)) {
 				temp = stof(line);
 			}
 			else {
@@ -172,7 +172,7 @@ int main()
 				break;
 
 			case WSIO: 
-				vybHIST(data, dataZ, dataCounter, 'A'); //A for All
+				vybHIST(data, dataZ, dataCounter, 'A'); //A dla All
 			
 			break;
 		}
@@ -229,7 +229,7 @@ int main()
 				case FC:
 					cout << "Temp w Fahr: ";
 					cin >> modline;
-					if (nieDebil(modline)) {
+					if (nieIdiota(modline)) {
 						modTemp = stof(modline);
 					}
 					else {
@@ -246,7 +246,7 @@ int main()
 				case FK:
 					cout << "Temp w Fahr: ";
 					cin >> modline;
-					if (nieDebil(modline)) {
+					if (nieIdiota(modline)) {
 						modTemp = stof(modline);
 					}
 					else {
@@ -263,7 +263,7 @@ int main()
 				case CF:
 					cout << "Temp w Celsiusach: ";
 					cin >> modline;
-					if (nieDebil(modline)) {
+					if (nieIdiota(modline)) {
 						modTemp = stof(modline);
 					}
 					else {
@@ -280,7 +280,7 @@ int main()
 				case CK:
 					cout << "Temp w Celsiusach: ";
 					cin >> modline;
-					if (nieDebil(modline)) {
+					if (nieIdiota(modline)) {
 						modTemp = stof(modline);
 					}
 					else {
@@ -297,7 +297,7 @@ int main()
 				case KC:
 					cout << "Temp w Kelwinach: ";
 					cin >> modline;
-					if (nieDebil(modline)) {
+					if (nieIdiota(modline)) {
 						modTemp = stof(modline);
 					}
 					else {
@@ -314,7 +314,7 @@ int main()
 				case KF:
 					cout << "Temp w Kelwinach: ";
 					cin >> modline;
-					if (nieDebil(modline)) {
+					if (nieIdiota(modline)) {
 						modTemp = stof(modline);
 					}
 					else {

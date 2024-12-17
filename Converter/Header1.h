@@ -181,7 +181,7 @@ void randHistory(int* dataCounter, double* data, char* dataZ) {
 	}
 }
 
-bool nieDebil(string str) {
+bool nieIdiota(string str) {
 	for (int i = 0; i < str.length(); i++) {
 
 		if (str[i] < 48 || str[i] > 57) {
